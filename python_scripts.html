@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Ready-to-Run Python Scripts — Exclusive Bonus for Bhai Ammar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Satoshi', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #030712; color: #f9fafb; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .code-block {
+            background: #0d1117;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 1.5rem;
+        }
+        .kw { color: #ff7b72; }
+        .fn { color: #d2a8ff; }
+        .str { color: #a5d6ff; }
+        .com { color: #8b949e; font-style: italic; }
+        .num { color: #79c0ff; }
+        .op { color: #ff7b72; }
+        .bi { color: #ffa657; }
+        .var { color: #ffa657; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-blue-500/30">
+
+    <!-- Navbar -->
+    <header class="w-full max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b border-white/10">
+        <div class="font-bold text-xl tracking-tight flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <span class="text-white font-black text-[10px] tracking-tight">ARS</span>
+            </div>
+            <span>ARS <span class="text-blue-400">Digital</span></span>
+        </div>
+        <a href="./welcome.html" class="text-sm font-medium text-gray-400 hover:text-white transition-colors">&larr; Back to Dashboard</a>
+    </header>
+
+    <!-- Exclusive Badge -->
+    <div class="w-full max-w-6xl mx-auto px-6 pt-8">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-full">
+            <span class="text-lg">🎁</span>
+            <span class="text-sm font-bold text-blue-400 uppercase tracking-wider">Exclusive Bonus for Bhai Ammar | Customer #001</span>
+        </div>
+    </div>
+
+    <main class="flex-grow w-full max-w-6xl mx-auto px-6 pt-10 pb-24">
+
+        <!-- Hero -->
+        <section class="mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+                10 Ready-to-Run <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Python Scripts</span> 🚀
+            </h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                Copy. Paste. Run. Each script actually works — no pip installs needed, just pure Python. These are your first building blocks, Ammar bhai!
+            </p>
+        </section>
+
+        <!-- Scripts -->
+        <div class="space-y-12">
+
+            <!-- Script 1: Password Generator -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-blue-500/15 text-blue-400 rounded-xl flex items-center justify-center font-bold border border-blue-500/20">01</span>
+                            <h2 class="text-2xl font-bold">Password Generator 🔐</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/15 text-green-400 text-xs font-bold rounded-full border border-green-500/20">🟢 Easy</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">Generate random strong passwords of any length. Never use "123456" again!</p>
+                    <div class="code-block mb-5">
+<pre><span class="kw">import</span> random
+<span class="kw">import</span> string
+
+<span class="kw">def</span> <span class="fn">generate_password</span>(length=<span class="num">16</span>):
+    <span class="str">"""Generate a random strong password."""</span>
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = <span class="str">''</span>.<span class="fn">join</span>(random.<span class="fn">choice</span>(characters) <span class="kw">for</span> _ <span class="kw">in</span> <span class="bi">range</span>(length))
+    <span class="kw">return</span> password
+
+<span class="com"># Ask the user how long they want the password</span>
+<span class="bi">print</span>(<span class="str">"🔐 Password Generator"</span>)
+<span class="bi">print</span>(<span class="str">"=" * 30</span>)
+
+length = <span class="bi">int</span>(<span class="bi">input</span>(<span class="str">"How many characters? (default 16): "</span>) <span class="kw">or</span> <span class="str">"16"</span>)
+
+<span class="bi">print</span>(<span class="str">f"\n✅ Your password: <span class="var">{generate_password(length)}</span>"</span>)
+<span class="bi">print</span>(<span class="str">f"✅ Another option: <span class="var">{generate_password(length)}</span>"</span>)
+<span class="bi">print</span>(<span class="str">f"✅ One more:       <span class="var">{generate_password(length)}</span>"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Importing modules (<code class="text-blue-400">random</code>, <code class="text-blue-400">string</code>)</li>
+                                <li>• Functions with default parameters</li>
+                                <li>• String joining and list comprehensions</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">password_gen.py</code><br>Run: <code class="text-green-400">python password_gen.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script 2: Countdown Timer -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-blue-500/15 text-blue-400 rounded-xl flex items-center justify-center font-bold border border-blue-500/20">02</span>
+                            <h2 class="text-2xl font-bold">Countdown Timer ⏱️</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/15 text-green-400 text-xs font-bold rounded-full border border-green-500/20">🟢 Easy</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">Set a timer and watch it count down in the terminal. Beeps when done!</p>
+                    <div class="code-block mb-5">
+<pre><span class="kw">import</span> time
+<span class="kw">import</span> sys
+
+<span class="bi">print</span>(<span class="str">"⏱️  Countdown Timer"</span>)
+<span class="bi">print</span>(<span class="str">"=" * 30</span>)
+
+seconds = <span class="bi">int</span>(<span class="bi">input</span>(<span class="str">"Enter seconds to count down: "</span>))
+
+<span class="bi">print</span>(<span class="str">f"\nStarting countdown from <span class="var">{seconds}</span> seconds...\n"</span>)
+
+<span class="kw">for</span> i <span class="kw">in</span> <span class="bi">range</span>(seconds, <span class="num">0</span>, -<span class="num">1</span>):
+    minutes = i // <span class="num">60</span>
+    secs = i % <span class="num">60</span>
+    timer = <span class="str">f"<span class="var">{minutes:02d}</span>:<span class="var">{secs:02d}</span>"</span>
+    <span class="bi">print</span>(<span class="str">f"\r  ⏳ <span class="var">{timer}</span> remaining..."</span>, end=<span class="str">""</span>)
+    sys.stdout.<span class="fn">flush</span>()
+    time.<span class="fn">sleep</span>(<span class="num">1</span>)
+
+<span class="bi">print</span>(<span class="str">"\r  🔔 TIME'S UP!              "</span>)
+<span class="bi">print</span>(<span class="str">"\a"</span>)  <span class="com"># Beep sound!</span>
+<span class="bi">print</span>(<span class="str">"\n✅ Timer finished. Well done!"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• <code class="text-blue-400">time.sleep()</code> for delays</li>
+                                <li>• Carriage return <code class="text-blue-400">\r</code> for live updates</li>
+                                <li>• Integer division and modulo</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">timer.py</code><br>Run: <code class="text-green-400">python timer.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script 3: Dice Roller -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-blue-500/15 text-blue-400 rounded-xl flex items-center justify-center font-bold border border-blue-500/20">03</span>
+                            <h2 class="text-2xl font-bold">Dice Roller Game 🎲</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/15 text-green-400 text-xs font-bold rounded-full border border-green-500/20">🟢 Easy</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">Roll dice against the computer. Keep score and see who wins!</p>
+                    <div class="code-block mb-5">
+<pre><span class="kw">import</span> random
+
+<span class="bi">print</span>(<span class="str">"🎲 Dice Roller — You vs Computer"</span>)
+<span class="bi">print</span>(<span class="str">"=" * 35</span>)
+
+your_score = <span class="num">0</span>
+cpu_score = <span class="num">0</span>
+rounds = <span class="num">5</span>
+
+<span class="kw">for</span> round_num <span class="kw">in</span> <span class="bi">range</span>(<span class="num">1</span>, rounds + <span class="num">1</span>):
+    <span class="bi">input</span>(<span class="str">f"\nRound <span class="var">{round_num}</span>/<span class="var">{rounds}</span> — Press Enter to roll... 🎲"</span>)
+    
+    your_roll = random.<span class="fn">randint</span>(<span class="num">1</span>, <span class="num">6</span>)
+    cpu_roll = random.<span class="fn">randint</span>(<span class="num">1</span>, <span class="num">6</span>)
+    
+    <span class="bi">print</span>(<span class="str">f"  You rolled: <span class="var">{your_roll}</span>  |  Computer rolled: <span class="var">{cpu_roll}</span>"</span>)
+    
+    <span class="kw">if</span> your_roll > cpu_roll:
+        <span class="bi">print</span>(<span class="str">"  ✅ You win this round!"</span>)
+        your_score += <span class="num">1</span>
+    <span class="kw">elif</span> cpu_roll > your_roll:
+        <span class="bi">print</span>(<span class="str">"  ❌ Computer wins this round!"</span>)
+        cpu_score += <span class="num">1</span>
+    <span class="kw">else</span>:
+        <span class="bi">print</span>(<span class="str">"  🤝 It's a tie!"</span>)
+
+<span class="bi">print</span>(<span class="str">f"\n{'=' * 35}"</span>)
+<span class="bi">print</span>(<span class="str">f"Final Score — You: <span class="var">{your_score}</span>  |  Computer: <span class="var">{cpu_score}</span>"</span>)
+
+<span class="kw">if</span> your_score > cpu_score:
+    <span class="bi">print</span>(<span class="str">"🏆 YOU WIN! Congratulations!"</span>)
+<span class="kw">elif</span> cpu_score > your_score:
+    <span class="bi">print</span>(<span class="str">"💻 Computer wins. Better luck next time!"</span>)
+<span class="kw">else</span>:
+    <span class="bi">print</span>(<span class="str">"🤝 It's a draw!"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• <code class="text-blue-400">random.randint()</code> for random numbers</li>
+                                <li>• For loops with counters</li>
+                                <li>• If/elif/else comparisons</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">dice.py</code><br>Run: <code class="text-green-400">python dice.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script 4: File Renamer -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-amber-500/15 text-amber-400 rounded-xl flex items-center justify-center font-bold border border-amber-500/20">04</span>
+                            <h2 class="text-2xl font-bold">Bulk File Renamer 📁</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-yellow-500/15 text-yellow-400 text-xs font-bold rounded-full border border-yellow-500/20">🟡 Medium</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">Rename all files in a folder by adding a prefix or suffix. A real automation tool!</p>
+                    <div class="code-block mb-5">
+<pre><span class="kw">import</span> os
+
+<span class="bi">print</span>(<span class="str">"📁 Bulk File Renamer"</span>)
+<span class="bi">print</span>(<span class="str">"=" * 30</span>)
+
+folder = <span class="bi">input</span>(<span class="str">"Enter folder path: "</span>).strip()
+
+<span class="kw">if not</span> os.path.<span class="fn">isdir</span>(folder):
+    <span class="bi">print</span>(<span class="str">"❌ Folder not found!"</span>)
+    exit()
+
+<span class="bi">print</span>(<span class="str">"\nOptions:"</span>)
+<span class="bi">print</span>(<span class="str">"  1. Add prefix (e.g., 'project_' + filename)"</span>)
+<span class="bi">print</span>(<span class="str">"  2. Add suffix (e.g., filename + '_backup')"</span>)
+
+choice = <span class="bi">input</span>(<span class="str">"\nChoose (1 or 2): "</span>)
+text = <span class="bi">input</span>(<span class="str">"Enter the prefix/suffix text: "</span>)
+
+files = [f <span class="kw">for</span> f <span class="kw">in</span> os.<span class="fn">listdir</span>(folder) <span class="kw">if</span> os.path.<span class="fn">isfile</span>(os.path.<span class="fn">join</span>(folder, f))]
+count = <span class="num">0</span>
+
+<span class="kw">for</span> filename <span class="kw">in</span> files:
+    name, ext = os.path.<span class="fn">splitext</span>(filename)
+    
+    <span class="kw">if</span> choice == <span class="str">"1"</span>:
+        new_name = text + filename
+    <span class="kw">else</span>:
+        new_name = name + text + ext
+    
+    old_path = os.path.<span class="fn">join</span>(folder, filename)
+    new_path = os.path.<span class="fn">join</span>(folder, new_name)
+    os.<span class="fn">rename</span>(old_path, new_path)
+    <span class="bi">print</span>(<span class="str">f"  ✅ <span class="var">{filename}</span> → <span class="var">{new_name}</span>"</span>)
+    count += <span class="num">1</span>
+
+<span class="bi">print</span>(<span class="str">f"\n🎉 Renamed <span class="var">{count}</span> files!"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• <code class="text-blue-400">os</code> module for file operations</li>
+                                <li>• Path manipulation & splitting extensions</li>
+                                <li>• Real-world file automation</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">renamer.py</code><br>Run: <code class="text-green-400">python renamer.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script 5: Birthday Calculator -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-blue-500/15 text-blue-400 rounded-xl flex items-center justify-center font-bold border border-blue-500/20">05</span>
+                            <h2 class="text-2xl font-bold">Birthday Calculator 🎂</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/15 text-green-400 text-xs font-bold rounded-full border border-green-500/20">🟢 Easy</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">Enter your birthday and find out your exact age and days until your next birthday!</p>
+                    <div class="code-block mb-5">
+<pre><span class="kw">from</span> datetime <span class="kw">import</span> datetime, date
+
+<span class="bi">print</span>(<span class="str">"🎂 Birthday Calculator"</span>)
+<span class="bi">print</span>(<span class="str">"=" * 30</span>)
+
+birth_str = <span class="bi">input</span>(<span class="str">"Enter your birthday (DD-MM-YYYY): "</span>)
+birth_date = datetime.<span class="fn">strptime</span>(birth_str, <span class="str">"%d-%m-%Y"</span>).date()
+today = date.<span class="fn">today</span>()
+
+<span class="com"># Calculate age</span>
+age_years = today.year - birth_date.year
+<span class="kw">if</span> (today.month, today.day) < (birth_date.month, birth_date.day):
+    age_years -= <span class="num">1</span>
+
+total_days = (today - birth_date).days
+
+<span class="com"># Days until next birthday</span>
+next_bday = date(today.year, birth_date.month, birth_date.day)
+<span class="kw">if</span> next_bday < today:
+    next_bday = date(today.year + <span class="num">1</span>, birth_date.month, birth_date.day)
+days_until = (next_bday - today).days
+
+<span class="bi">print</span>(<span class="str">f"\n📊 Results:"</span>)
+<span class="bi">print</span>(<span class="str">f"  🎈 You are <span class="var">{age_years}</span> years old"</span>)
+<span class="bi">print</span>(<span class="str">f"  📅 You've been alive for <span class="var">{total_days:,}</span> days"</span>)
+<span class="bi">print</span>(<span class="str">f"  ⏳ <span class="var">{days_until}</span> days until your next birthday!"</span>)
+
+<span class="kw">if</span> days_until == <span class="num">0</span>:
+    <span class="bi">print</span>(<span class="str">"  🎉 HAPPY BIRTHDAY!!!"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• <code class="text-blue-400">datetime</code> module for dates</li>
+                                <li>• Date parsing and arithmetic</li>
+                                <li>• Tuple comparison</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">birthday.py</code><br>Run: <code class="text-green-400">python birthday.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script 6: Rock Paper Scissors -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-blue-500/15 text-blue-400 rounded-xl flex items-center justify-center font-bold border border-blue-500/20">06</span>
+                            <h2 class="text-2xl font-bold">Rock Paper Scissors ✊✋✌️</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/15 text-green-400 text-xs font-bold rounded-full border border-green-500/20">🟢 Easy</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">Play the classic game against your computer. Best of 5 rounds!</p>
+                    <div class="code-block mb-5">
+<pre><span class="kw">import</span> random
+
+<span class="bi">print</span>(<span class="str">"✊✋✌️ Rock Paper Scissors — Best of 5"</span>)
+<span class="bi">print</span>(<span class="str">"=" * 40</span>)
+
+choices = [<span class="str">"rock"</span>, <span class="str">"paper"</span>, <span class="str">"scissors"</span>]
+emojis = {<span class="str">"rock"</span>: <span class="str">"✊"</span>, <span class="str">"paper"</span>: <span class="str">"✋"</span>, <span class="str">"scissors"</span>: <span class="str">"✌️"</span>}
+wins = {<span class="str">"rock"</span>: <span class="str">"scissors"</span>, <span class="str">"paper"</span>: <span class="str">"rock"</span>, <span class="str">"scissors"</span>: <span class="str">"paper"</span>}
+
+you, cpu = <span class="num">0</span>, <span class="num">0</span>
+
+<span class="kw">while</span> you < <span class="num">3</span> <span class="kw">and</span> cpu < <span class="num">3</span>:
+    pick = <span class="bi">input</span>(<span class="str">"\nType rock, paper, or scissors: "</span>).lower().strip()
+    <span class="kw">if</span> pick <span class="kw">not in</span> choices:
+        <span class="bi">print</span>(<span class="str">"  ❌ Invalid choice, try again."</span>)
+        <span class="kw">continue</span>
+
+    cpu_pick = random.<span class="fn">choice</span>(choices)
+    <span class="bi">print</span>(<span class="str">f"  You: <span class="var">{emojis[pick]}</span>  vs  Computer: <span class="var">{emojis[cpu_pick]}</span>"</span>)
+
+    <span class="kw">if</span> pick == cpu_pick:
+        <span class="bi">print</span>(<span class="str">"  🤝 Tie!"</span>)
+    <span class="kw">elif</span> wins[pick] == cpu_pick:
+        <span class="bi">print</span>(<span class="str">"  ✅ You win!"</span>)
+        you += <span class="num">1</span>
+    <span class="kw">else</span>:
+        <span class="bi">print</span>(<span class="str">"  ❌ Computer wins!"</span>)
+        cpu += <span class="num">1</span>
+    <span class="bi">print</span>(<span class="str">f"  Score — You: <span class="var">{you}</span> | Computer: <span class="var">{cpu}</span>"</span>)
+
+<span class="bi">print</span>(<span class="str">f"\n{'🏆 YOU WIN!' if you > cpu else '💻 Computer wins!'}"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Dictionaries for game logic</li>
+                                <li>• While loops with conditions</li>
+                                <li>• Input validation</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">rps.py</code><br>Run: <code class="text-green-400">python rps.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script 7: Simple Calculator -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-blue-500/15 text-blue-400 rounded-xl flex items-center justify-center font-bold border border-blue-500/20">07</span>
+                            <h2 class="text-2xl font-bold">Simple Calculator 🧮</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/15 text-green-400 text-xs font-bold rounded-full border border-green-500/20">🟢 Easy</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">A loop-based calculator that keeps running until you type 'quit'.</p>
+                    <div class="code-block mb-5">
+<pre><span class="bi">print</span>(<span class="str">"🧮 Simple Calculator"</span>)
+<span class="bi">print</span>(<span class="str">"Type 'quit' to exit.\n"</span>)
+
+<span class="kw">while</span> <span class="kw">True</span>:
+    num1 = <span class="bi">input</span>(<span class="str">"First number (or 'quit'): "</span>)
+    <span class="kw">if</span> num1.lower() == <span class="str">"quit"</span>:
+        <span class="bi">print</span>(<span class="str">"👋 Goodbye!"</span>)
+        <span class="kw">break</span>
+    
+    op = <span class="bi">input</span>(<span class="str">"Operator (+, -, *, /): "</span>)
+    num2 = <span class="bi">input</span>(<span class="str">"Second number: "</span>)
+
+    <span class="kw">try</span>:
+        a, b = <span class="bi">float</span>(num1), <span class="bi">float</span>(num2)
+        <span class="kw">if</span>   op == <span class="str">"+"</span>: result = a + b
+        <span class="kw">elif</span> op == <span class="str">"-"</span>: result = a - b
+        <span class="kw">elif</span> op == <span class="str">"*"</span>: result = a * b
+        <span class="kw">elif</span> op == <span class="str">"/"</span>:
+            <span class="kw">if</span> b == <span class="num">0</span>:
+                <span class="bi">print</span>(<span class="str">"  ❌ Cannot divide by zero!\n"</span>)
+                <span class="kw">continue</span>
+            result = a / b
+        <span class="kw">else</span>:
+            <span class="bi">print</span>(<span class="str">"  ❌ Unknown operator.\n"</span>)
+            <span class="kw">continue</span>
+        <span class="bi">print</span>(<span class="str">f"  ✅ <span class="var">{a}</span> <span class="var">{op}</span> <span class="var">{b}</span> = <span class="var">{result}</span>\n"</span>)
+    <span class="kw">except</span> <span class="bi">ValueError</span>:
+        <span class="bi">print</span>(<span class="str">"  ❌ Invalid number.\n"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Infinite loops with <code class="text-blue-400">while True</code> / <code class="text-blue-400">break</code></li>
+                                <li>• Try/except error handling</li>
+                                <li>• Type conversion (<code class="text-blue-400">float()</code>)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">calc.py</code><br>Run: <code class="text-green-400">python calc.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script 8: Quiz Game -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-amber-500/15 text-amber-400 rounded-xl flex items-center justify-center font-bold border border-amber-500/20">08</span>
+                            <h2 class="text-2xl font-bold">Tech Quiz Game 🧠</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-yellow-500/15 text-yellow-400 text-xs font-bold rounded-full border border-yellow-500/20">🟡 Medium</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">A multiple-choice quiz about tech and Python. Test your knowledge!</p>
+                    <div class="code-block mb-5">
+<pre>questions = [
+    {
+        <span class="str">"q"</span>: <span class="str">"What does CPU stand for?"</span>,
+        <span class="str">"options"</span>: [<span class="str">"Central Processing Unit"</span>, <span class="str">"Computer Personal Unit"</span>, <span class="str">"Central Program Utility"</span>],
+        <span class="str">"answer"</span>: <span class="num">1</span>
+    },
+    {
+        <span class="str">"q"</span>: <span class="str">"Which language is known as the 'language of the web'?"</span>,
+        <span class="str">"options"</span>: [<span class="str">"Python"</span>, <span class="str">"JavaScript"</span>, <span class="str">"C++"</span>],
+        <span class="str">"answer"</span>: <span class="num">2</span>
+    },
+    {
+        <span class="str">"q"</span>: <span class="str">"What does 'print()' do in Python?"</span>,
+        <span class="str">"options"</span>: [<span class="str">"Sends to printer"</span>, <span class="str">"Shows output on screen"</span>, <span class="str">"Creates a file"</span>],
+        <span class="str">"answer"</span>: <span class="num">2</span>
+    },
+    {
+        <span class="str">"q"</span>: <span class="str">"What is an API?"</span>,
+        <span class="str">"options"</span>: [<span class="str">"A Programming Interface"</span>, <span class="str">"A type of database"</span>, <span class="str">"A web browser"</span>],
+        <span class="str">"answer"</span>: <span class="num">1</span>
+    },
+    {
+        <span class="str">"q"</span>: <span class="str">"What symbol starts a comment in Python?"</span>,
+        <span class="str">"options"</span>: [<span class="str">"//"</span>, <span class="str">"#"</span>, <span class="str">"--"</span>],
+        <span class="str">"answer"</span>: <span class="num">2</span>
+    },
+]
+
+<span class="bi">print</span>(<span class="str">"🧠 Tech Quiz — 5 Questions"</span>)
+<span class="bi">print</span>(<span class="str">"=" * 35</span>)
+
+score = <span class="num">0</span>
+<span class="kw">for</span> i, q <span class="kw">in</span> <span class="bi">enumerate</span>(questions, <span class="num">1</span>):
+    <span class="bi">print</span>(<span class="str">f"\nQ<span class="var">{i}</span>: <span class="var">{q['q']}</span>"</span>)
+    <span class="kw">for</span> j, opt <span class="kw">in</span> <span class="bi">enumerate</span>(q[<span class="str">"options"</span>], <span class="num">1</span>):
+        <span class="bi">print</span>(<span class="str">f"  <span class="var">{j}</span>. <span class="var">{opt}</span>"</span>)
+    
+    ans = <span class="bi">input</span>(<span class="str">"Your answer (1/2/3): "</span>)
+    <span class="kw">if</span> ans.isdigit() <span class="kw">and</span> <span class="bi">int</span>(ans) == q[<span class="str">"answer"</span>]:
+        <span class="bi">print</span>(<span class="str">"  ✅ Correct!"</span>)
+        score += <span class="num">1</span>
+    <span class="kw">else</span>:
+        <span class="bi">print</span>(<span class="str">f"  ❌ Wrong! Answer: <span class="var">{q['options'][q['answer']-1]}</span>"</span>)
+
+<span class="bi">print</span>(<span class="str">f"\n🏆 Score: <span class="var">{score}</span>/5 — <span class="var">{'Excellent!' if score >= 4 else 'Good try!' if score >= 2 else 'Keep learning!'}</span>"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Lists of dictionaries (data structures)</li>
+                                <li>• <code class="text-blue-400">enumerate()</code> for indexing</li>
+                                <li>• Conditional expressions (ternary)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">quiz.py</code><br>Run: <code class="text-green-400">python quiz.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script 9: Digital Clock -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-blue-500/15 text-blue-400 rounded-xl flex items-center justify-center font-bold border border-blue-500/20">09</span>
+                            <h2 class="text-2xl font-bold">Live Digital Clock 🕐</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/15 text-green-400 text-xs font-bold rounded-full border border-green-500/20">🟢 Easy</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">A live clock that updates every second in your terminal. Press Ctrl+C to stop.</p>
+                    <div class="code-block mb-5">
+<pre><span class="kw">import</span> time
+<span class="kw">from</span> datetime <span class="kw">import</span> datetime
+
+<span class="bi">print</span>(<span class="str">"🕐 Live Digital Clock (Press Ctrl+C to stop)\n"</span>)
+
+<span class="kw">try</span>:
+    <span class="kw">while</span> <span class="kw">True</span>:
+        now = datetime.<span class="fn">now</span>()
+        clock = now.<span class="fn">strftime</span>(<span class="str">"%H:%M:%S"</span>)
+        date = now.<span class="fn">strftime</span>(<span class="str">"%A, %d %B %Y"</span>)
+        
+        <span class="bi">print</span>(<span class="str">f"\r  🕐  <span class="var">{clock}</span>  |  📅 <span class="var">{date}</span>  "</span>, end=<span class="str">""</span>)
+        time.<span class="fn">sleep</span>(<span class="num">1</span>)
+
+<span class="kw">except</span> <span class="bi">KeyboardInterrupt</span>:
+    <span class="bi">print</span>(<span class="str">"\n\n👋 Clock stopped. Goodbye!"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• <code class="text-blue-400">datetime.now()</code> for current time</li>
+                                <li>• <code class="text-blue-400">strftime()</code> for formatting</li>
+                                <li>• Handling <code class="text-blue-400">KeyboardInterrupt</code></li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">clock.py</code><br>Run: <code class="text-green-400">python clock.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script 10: Folder Organizer -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <div class="flex items-center justify-between flex-wrap gap-3 mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 bg-amber-500/15 text-amber-400 rounded-xl flex items-center justify-center font-bold border border-amber-500/20">10</span>
+                            <h2 class="text-2xl font-bold">Folder Organizer 🗂️</h2>
+                        </div>
+                        <span class="px-3 py-1 bg-yellow-500/15 text-yellow-400 text-xs font-bold rounded-full border border-yellow-500/20">🟡 Medium</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-5">Automatically sort files in any folder into subfolders by type. The king of automations!</p>
+                    <div class="code-block mb-5">
+<pre><span class="kw">import</span> os
+<span class="kw">import</span> shutil
+
+CATEGORIES = {
+    <span class="str">"Images"</span>: [<span class="str">".jpg"</span>, <span class="str">".jpeg"</span>, <span class="str">".png"</span>, <span class="str">".gif"</span>, <span class="str">".svg"</span>, <span class="str">".webp"</span>],
+    <span class="str">"Documents"</span>: [<span class="str">".pdf"</span>, <span class="str">".doc"</span>, <span class="str">".docx"</span>, <span class="str">".txt"</span>, <span class="str">".xlsx"</span>, <span class="str">".pptx"</span>],
+    <span class="str">"Videos"</span>: [<span class="str">".mp4"</span>, <span class="str">".avi"</span>, <span class="str">".mkv"</span>, <span class="str">".mov"</span>],
+    <span class="str">"Music"</span>: [<span class="str">".mp3"</span>, <span class="str">".wav"</span>, <span class="str">".flac"</span>, <span class="str">".aac"</span>],
+    <span class="str">"Code"</span>: [<span class="str">".py"</span>, <span class="str">".js"</span>, <span class="str">".html"</span>, <span class="str">".css"</span>, <span class="str">".java"</span>],
+    <span class="str">"Archives"</span>: [<span class="str">".zip"</span>, <span class="str">".rar"</span>, <span class="str">".7z"</span>, <span class="str">".tar"</span>],
+}
+
+<span class="kw">def</span> <span class="fn">get_category</span>(ext):
+    <span class="kw">for</span> cat, exts <span class="kw">in</span> CATEGORIES.items():
+        <span class="kw">if</span> ext.lower() <span class="kw">in</span> exts:
+            <span class="kw">return</span> cat
+    <span class="kw">return</span> <span class="str">"Other"</span>
+
+<span class="bi">print</span>(<span class="str">"🗂️  Folder Organizer"</span>)
+<span class="bi">print</span>(<span class="str">"=" * 30</span>)
+
+folder = <span class="bi">input</span>(<span class="str">"Enter folder path to organize: "</span>).strip()
+
+<span class="kw">if not</span> os.path.<span class="fn">isdir</span>(folder):
+    <span class="bi">print</span>(<span class="str">"❌ Folder not found!"</span>)
+    exit()
+
+count = <span class="num">0</span>
+<span class="kw">for</span> filename <span class="kw">in</span> os.<span class="fn">listdir</span>(folder):
+    filepath = os.path.<span class="fn">join</span>(folder, filename)
+    <span class="kw">if</span> os.path.<span class="fn">isfile</span>(filepath):
+        _, ext = os.path.<span class="fn">splitext</span>(filename)
+        <span class="kw">if not</span> ext:
+            <span class="kw">continue</span>
+        
+        category = <span class="fn">get_category</span>(ext)
+        target_dir = os.path.<span class="fn">join</span>(folder, category)
+        os.<span class="fn">makedirs</span>(target_dir, exist_ok=<span class="kw">True</span>)
+        
+        shutil.<span class="fn">move</span>(filepath, os.path.<span class="fn">join</span>(target_dir, filename))
+        <span class="bi">print</span>(<span class="str">f"  ✅ <span class="var">{filename}</span> → <span class="var">{category}</span>/"</span>)
+        count += <span class="num">1</span>
+
+<span class="bi">print</span>(<span class="str">f"\n🎉 Organized <span class="var">{count}</span> files!"</span>)</pre>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">💡 What You'll Learn</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• <code class="text-blue-400">os</code> + <code class="text-blue-400">shutil</code> for file management</li>
+                                <li>• Creating directories dynamically</li>
+                                <li>• Building real automation tools</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/[0.02] border border-white/5 rounded-xl p-4 sm:w-64">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">▶️ How to Run</h4>
+                            <p class="text-sm text-gray-300">Save as <code class="text-blue-400">organizer.py</code><br>Run: <code class="text-green-400">python organizer.py</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Closing Note -->
+        <section class="mt-20 text-center">
+            <div class="glass-card rounded-2xl p-8 md:p-12 max-w-2xl mx-auto">
+                <h2 class="text-2xl font-bold mb-4">Ab tera kaam shuru hota hai, Ammar bhai! 💪</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Ye 10 scripts tera foundation hain. Inhe copy kar, run kar, todh-modh kar, apne hisaab se change kar. 
+                    Jitna zyada todeega, utna zyada seekhega. Aur agar kabhi koi error aaye — yaad rakh, wo tera teacher hai, dushman nahi.
+                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">Koi bhi cheez samajh na aaye — mujhe seedha message kar. ⬇️</p>
+                <a href="https://wa.me/923467282874" target="_blank" class="inline-flex px-8 py-3.5 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors">
+                    Message Ali on WhatsApp 💬
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-8 mt-auto bg-gray-950">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                    <span class="text-white font-black text-[8px] tracking-tight">ARS</span>
+                </div>
+                <p class="text-gray-400 text-sm font-medium">&copy; 2026 Ali Raza Saleem &bull; ARS Digital</p>
+            </div>
+            <a href="https://wa.me/923467282874" target="_blank" class="text-gray-500 hover:text-white text-sm font-medium transition-colors">wa.me/923467282874</a>
+        </div>
+    </footer>
+
+</body>
+</html>
