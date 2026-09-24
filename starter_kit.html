@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Paid Starter Kit | ARS Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Satoshi', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #030712; color: #f9fafb; overflow-x: hidden; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-blue-500/30 relative">
+
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full md:w-[600px] h-[300px] bg-blue-600/20 blur-[150px] rounded-full pointer-events-none -z-10"></div>
+
+    <!-- Navbar -->
+    <header class="w-full max-w-6xl mx-auto px-4 md:px-6 py-4 md:py-6 flex justify-between items-center border-b border-white/10">
+        <div class="font-bold text-lg md:text-xl tracking-tight flex items-center gap-2 md:gap-3">
+            <div class="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <span class="text-white font-black text-[10px] tracking-tight">ARS</span>
+            </div>
+            <span>ARS <span class="text-blue-400">Digital</span></span>
+        </div>
+        <a href="./index.html" class="text-xs md:text-sm font-bold text-gray-400 hover:text-white transition-colors">&larr; Back Home</a>
+    </header>
+
+    <main class="flex-grow w-full max-w-4xl mx-auto px-4 md:px-6 pt-10 md:pt-16 pb-24">
+        
+        <div class="text-center mb-12 md:mb-16">
+            <div class="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-[10px] md:text-xs font-bold rounded-full mb-4 border border-blue-500/20">
+                💳 PAID ACCESS
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black tracking-tighter mb-4">
+                Python Automation & Tech Starter Kit
+            </h1>
+            <p class="text-sm md:text-lg text-gray-400 max-w-2xl mx-auto">
+                Bhai, tu ne jin cheezon ke paise diye the wo yahan hain. Ye PDF guides hain jin mein real code aur real automation techniques hain.
+            </p>
+        </div>
+
+        <!-- Download Section -->
+        <div class="glass-card rounded-3xl p-6 md:p-10 mb-12">
+            
+            <div class="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
+                <div class="w-14 h-14 bg-red-500/20 text-red-400 rounded-xl flex items-center justify-center text-3xl shrink-0">
+                    📄
+                </div>
+                <div>
+                    <h2 class="text-xl md:text-2xl font-bold">Main E-Book (PDF)</h2>
+                    <p class="text-sm text-gray-400">Yahan se tu isay apnay phone ya laptop mein save kar sakta hai.</p>
+                </div>
+            </div>
+
+            <!-- Fake download button that actually just opens a new tab or alerts to show it works -->
+            <button onclick="alert('Bhai abhi main teri PDF Google Drive pe upload kar ke link daal doonga. Yahan se tu direct download kar sakega!')" class="w-full flex items-center justify-between p-4 md:p-6 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-bold transition-colors group">
+                <div class="flex flex-col text-left">
+                    <span class="text-lg md:text-xl">Download Core Guide</span>
+                    <span class="text-xs md:text-sm text-blue-200 font-normal">Python_Automation_Starter_Kit.pdf (3.2 MB)</span>
+                </div>
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-black/20 rounded-full flex items-center justify-center group-hover:-translate-y-1 transition-transform">
+                    ⬇️
+                </div>
+            </button>
+            
+        </div>
+        
+        <!-- Massive Value Section -->
+        <h3 class="text-xl font-bold mb-6 text-center">Is Kit Mein Tujhe Kya Milega? 🛠️</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                <div class="text-2xl mb-3">🤖</div>
+                <h4 class="font-bold mb-2">Automate WhatsApp</h4>
+                <p class="text-sm text-gray-400">Apne WhatsApp ko bot bana de jo khud reply karega aur messages bhejega.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                <div class="text-2xl mb-3">📊</div>
+                <h4 class="font-bold mb-2">Scrape The Web</h4>
+                <p class="text-sm text-gray-400">Internet se thousands of records (prices, leads) seconds mein extract kar.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                <div class="text-2xl mb-3">💰</div>
+                <h4 class="font-bold mb-2">Make Money</h4>
+                <p class="text-sm text-gray-400">Inhi skills ko Fiverr aur Upwork pe goron (foreigners) ko bech ke dollars kama.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="border-t border-white/10 py-6 md:py-8 mt-auto bg-gray-950 text-center">
+        <p class="text-gray-500 text-xs md:text-sm font-medium">&copy; 2026 Ali Raza Saleem &bull; ARS Digital</p>
+    </footer>
+</body>
+</html>
